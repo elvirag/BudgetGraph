@@ -13,13 +13,26 @@
 		cols:1
 
 		GridLayout:
-			cols:2
+			size_hint: (1, 0.17)
+			cols: 3
 			Label:
+				size_hint: (1, 1)
 				text: "Date of Purchase: "
 			TextInput:
+				size_hint: (0.9, 1)
 				id: date
 				multiline: False
+				hint_text: "dd/mm/yyyy"
+			Button:
+				size_hint: (0.1, 1)
+				on_press: root.cal()
+				Image:
+					source: 'cal-icon.jpg'
+					y: self.parent.y + self.parent.height - 200
+					x: self.parent.x
 
+		GridLayout:
+			cols:2
 			Label:
 				text: "Puprose of Expanse: "
 			TextInput:
@@ -30,6 +43,7 @@
 				text: "Amount Spent: "
 			TextInput:
 				id: cost
+				input_filter: "float"
 				multiline: False
 
 			Label:

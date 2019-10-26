@@ -1,5 +1,5 @@
 import kivy
-# import KivyCalendar
+from datepicker import CalendarWidget
 import sqlite_stuff
 
 from kivy.app import App
@@ -35,6 +35,11 @@ class MyGrid(Widget):
 		self.category.text = ""
 		self.pob.text = ""
 		self.comments.text = ""
+
+	def cal(self):
+		print("Hi!")
+		# TODO: add calendar widget, prefilled with today's date! (Tal)
+		cal_widget = CalendarWidget()
 
 class Expense:
 	def __init__(self, date_purchase, name, cost, category, pob, comments):

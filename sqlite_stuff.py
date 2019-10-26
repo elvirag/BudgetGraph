@@ -32,11 +32,11 @@ def create_expense(expense):
 	conn, cur = connect()
 
 	cur.execute(
-		"""
-		INSERT INTO expenses (Date_purchase, Name, Cost, Category, Buisness, Comments)
-		VALUES( {}, {}, {}, {}, {}, {});
+		"""INSERT INTO expenses (Date_purchase, Name, Cost, Category, Buisness, Comments)
+		VALUES( "{}", "{}", {}, "{}", "{}", "{}");
 		""".format(expense.date_purchase, expense.name, expense.cost, expense.category, expense.pob, expense.comments)
-		)
+	)
+
 	conn.commit()
 	conn.close()
 
