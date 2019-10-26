@@ -1,0 +1,54 @@
+<MyGrid>
+
+    date_purchase: date
+    name: name
+    cost: cost
+    category: category
+    pob: pob
+    comments: comments
+
+	GridLayout:
+		size: root.width - 200, root.height - 200
+		pos: 100, 100
+		cols:1
+
+		GridLayout:
+			cols:2
+			Label:
+				text: "Date of Purchase: "
+			TextInput:
+				id: date
+				multiline: False
+
+			Label:
+				text: "Puprose of Expanse: "
+			TextInput:
+				id: name
+				multipile: False
+
+			Label:
+				text: "Amount Spent: "
+			TextInput:
+				id: cost
+				multiline: False
+
+			Label:
+				text: "Category: "
+			TextInput:
+				id: category
+				multiline: False
+
+			Label:
+				text: "Place of Purchase: "
+			TextInput:
+				id: pob
+				multiline: False
+
+			Label:
+				text: "Comments: "
+			TextInput:
+				id: comments
+				multiline: False
+		Button:
+			text: "Submit"
+			on_press: root.btn()

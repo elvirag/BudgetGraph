@@ -1,0 +1,3 @@
+title=Budget Graph
+author=Elvira
+orientation=portrait
