@@ -16,6 +16,7 @@ class MyGrid(Widget):
 	name = ObjectProperty(None)
 	cost = ObjectProperty(None)
 	category = ObjectProperty(None)
+	means = ObjectProperty(None)
 	pob = ObjectProperty(None)
 	comments = ObjectProperty(None)
 
@@ -25,6 +26,7 @@ class MyGrid(Widget):
 			self.name.text,
 			self.cost.text,
 			self.category.text,
+			self.means.text,
 			self.pob.text,
 			self.comments.text
 			)
@@ -33,6 +35,7 @@ class MyGrid(Widget):
 		self.name.text = ""
 		self.cost.text = ""
 		self.category.text = ""
+		self.means.text = ""
 		self.pob.text = ""
 		self.comments.text = ""
 
@@ -42,15 +45,16 @@ class MyGrid(Widget):
 		cal_widget = CalendarWidget()
 
 class Expense:
-	def __init__(self, date_purchase, name, cost, category, pob, comments):
+	def __init__(self, date_purchase, name, cost, category, means, pob, comments):
 		self.date_purchase = date_purchase
 		self.name = name
 		self.cost = cost
 		self.category = category
+		self.means = means
 		self.pob = pob
 		self.comments = comments
 	def __str__(self):
-		return " Date of Purchase: {} Name of Expense: {} Amount Spent: {} Category: {} Place of Purchase: {} Comments: {}".format(self.date_purchase, self.name, self.cost, self.category, self.pob, self.comments)
+		return " Date of Purchase: {} Name of Expense: {} Amount Spent: {} Category: {} Means: {} Place of Purchase: {} Comments: {}".format(self.date_purchase, self.name, self.cost, self.category, self.means, self.pob, self.comments)
 
 class MyApp(App):
 	def build(self):

@@ -18,6 +18,7 @@ def create_table():
 	    Name Varchar(256) NOT NULL,
 	    Cost REAL NOT NULL,
 	    Category Varchar(256) NOT NULL,
+	    Means Varchar(256) NOT NULL,
 	    Buisness Varchar(256) NOT NULL,
 	    Comments Varchar(1024)
 	);
@@ -32,9 +33,9 @@ def create_expense(expense):
 	conn, cur = connect()
 
 	cur.execute(
-		"""INSERT INTO expenses (Date_purchase, Name, Cost, Category, Buisness, Comments)
-		VALUES( "{}", "{}", {}, "{}", "{}", "{}");
-		""".format(expense.date_purchase, expense.name, expense.cost, expense.category, expense.pob, expense.comments)
+		"""INSERT INTO expenses (Date_purchase, Name, Cost, Category, Means, Buisness, Comments)
+		VALUES( "{}", "{}", {}, "{}", "{}", "{}", "{}");
+		""".format(expense.date_purchase, expense.name, expense.cost, expense.category, expense.means, expense.pob, expense.comments)
 	)
 
 	conn.commit()

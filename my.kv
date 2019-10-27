@@ -4,6 +4,7 @@
     name: name
     cost: cost
     category: category
+    means: means
     pob: pob
     comments: comments
 
@@ -26,10 +27,7 @@
 			Button:
 				size_hint: (0.1, 1)
 				on_press: root.cal()
-				Image:
-					source: 'cal-icon.jpg'
-					y: self.parent.y + self.parent.height - 200
-					x: self.parent.x
+				background_normal:'cal-icon.jpg'
 
 		GridLayout:
 			cols:2
@@ -37,6 +35,7 @@
 				text: "Puprose of Expanse: "
 			TextInput:
 				id: name
+				font_name: "Arial"
 				multipile: False
 
 			Label:
@@ -44,25 +43,38 @@
 			TextInput:
 				id: cost
 				input_filter: "float"
+				font_name: "Arial"
 				multiline: False
 
 			Label:
 				text: "Category: "
 			TextInput:
 				id: category
+				font_name: "Arial"
+				multiline: False
+
+			Label:
+				text: "Means of Purchase: "
+			TextInput:
+				id: means
+				font_name: "Arial"
 				multiline: False
 
 			Label:
 				text: "Place of Purchase: "
 			TextInput:
 				id: pob
+				font_name: "Arial"
 				multiline: False
 
 			Label:
 				text: "Comments: "
 			TextInput:
 				id: comments
+				font_name: "Arial"
 				multiline: False
 		Button:
 			text: "Submit"
+			margin: (10 , 10 , 10, 10)
+			size_hint: (0.3, 0.15)
 			on_press: root.btn()
