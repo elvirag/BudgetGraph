@@ -11,33 +11,54 @@ from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 
 class MyGrid(Widget):
+	date_purchase = ObjectProperty(None, allownone=False)
+	name = ObjectProperty(None, allownone=False)
+	cost = ObjectProperty(None, allownone=False)
+	category = ObjectProperty(None, allownone=False)
+	means = ObjectProperty(None, allownone=False)
+	pob = ObjectProperty(None, allownone=False)
+	comments = ObjectProperty(None, allownone=True)
+	submit_button = Button()
 
-	date_purchase = ObjectProperty(None)
-	name = ObjectProperty(None)
-	cost = ObjectProperty(None)
-	category = ObjectProperty(None)
-	means = ObjectProperty(None)
-	pob = ObjectProperty(None)
-	comments = ObjectProperty(None)
-
-	def btn(self):
-		expense = Expense(
+	def is_submit_disabled(self):
+		print("Checking if button is disabled...")
+		required_fields = [
 			self.date_purchase.text,
 			self.name.text,
 			self.cost.text,
 			self.category.text,
 			self.means.text,
-			self.pob.text,
-			self.comments.text
-			)
-		sqlite_stuff.create_expense(expense)
-		self.date_purchase.text = ""
-		self.name.text = ""
-		self.cost.text = ""
-		self.category.text = ""
-		self.means.text = ""
-		self.pob.text = ""
-		self.comments.text = ""
+			self.pob.text
+			]
+
+		for field in required_fields:
+			if not field:
+				return True
+
+		return False 
+
+
+	def btn(self):
+		if self.is_submit_disabled():
+			self.submit_button.disabled = True
+		else:
+			expense = Expense(
+				self.date_purchase.text,
+				self.name.text,
+				self.cost.text,
+				self.category.text,
+				self.means.text,
+				self.pob.text,
+				self.comments.text
+				)
+			sqlite_stuff.create_expense(expense)
+			self.date_purchase.text = ""
+			self.name.text = ""
+			self.cost.text = ""
+			self.category.text = ""
+			self.means.text = ""
+			self.pob.text = ""
+			self.comments.text = ""
 
 	def cal(self):
 		print("Hi!")

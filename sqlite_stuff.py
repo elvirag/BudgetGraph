@@ -31,6 +31,9 @@ def create_table():
 
 def create_expense(expense):
 	conn, cur = connect()
+	print("""INSERT INTO expenses (Date_purchase, Name, Cost, Category, Means, Buisness, Comments)
+		VALUES( "{}", "{}", {}, "{}", "{}", "{}", "{}");
+		""".format(expense.date_purchase, expense.name, expense.cost, expense.category, expense.means, expense.pob, expense.comments))
 
 	cur.execute(
 		"""INSERT INTO expenses (Date_purchase, Name, Cost, Category, Means, Buisness, Comments)
